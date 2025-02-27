@@ -8,7 +8,6 @@ import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import reactRefreshPlugin from 'eslint-plugin-react-refresh'
 import typescriptParser from '@typescript-eslint/parser'
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
-import vitestGlobals from 'vitest/globals'
 
 async function createConfig() {
   const prettierConfig =
@@ -25,12 +24,11 @@ async function createConfig() {
         ecmaVersion: 2020,
         globals: {
           ...globals.browser,
-          ...vitestGlobals.globals,
         },
         parser: typescriptParser,
         parserOptions: {
           ecmaFeatures: {
-            jsx: true, // Enable JSX parsing
+            jsx: true,
           },
           project: './tsconfig.eslint.json',
           sourceType: 'module',
@@ -62,6 +60,21 @@ async function createConfig() {
         },
       },
     },
+
+    // Test file overrides (Vitest specific):
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
+      languageOptions: {
+        globals: {
+          vi: 'readonly',
+          describe: 'readonly',
+          it: 'readonly',
+          expect: 'readonly',
+        },
+      },
+    },
+
+    // Vite config file:
     {
       files: ['vite.config.ts'],
       languageOptions: {
