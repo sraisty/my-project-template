@@ -43,10 +43,10 @@ async function createConfig() {
       },
       rules: {
         ...js.configs.recommended.rules,
+        ...typescriptPlugin.configs.recommended.rules, // Expand @typescript-eslint/recommended
         ...reactPlugin.configs.recommended.rules,
         ...reactHooksPlugin.configs.recommended.rules, // Expand react-hooks/recommended
         ...reactRefreshPlugin.configs.recommended.rules,
-        ...typescriptPlugin.configs.recommended.rules, // Expand @typescript-eslint/recommended
         'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off', // If using TypeScript, you don't need prop-types
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],

@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsxdev", // or "react-jsx" (prod), or 'react-jsxdev' (dev_)
+    "jsx": "react-jsxdev", // or "react-jsx" (prod), or 'react-jsxdev' (dev)
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -28,7 +28,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
-  // "include": ["src/**/*"],
   "include": ["src", "src/setupTests.ts"],
   "exclude": ["node_modules"],
   "extends": "./tsconfig.json"

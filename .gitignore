@@ -20,8 +20,6 @@ lerna-debug.log*
 # test coverage
 coverage/
 
-
-
 # Editor directories and files
 .idea
 .DS_Store
