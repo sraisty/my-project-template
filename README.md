@@ -13,13 +13,14 @@ Frontend (web):
 Note that React, Vite, Vitest, and Tailwind are only applicable for front-end applicatoins.
 
 Backend (server):
-* node.js / ts-node
+* node.js / ts-node / nodemon?
 * Typescript
 * Express
 * Eslint + Prettier
 * Jest + Supertest - for testing
-* Postgres
-* Node-fetch
+* Postgres + Knex
+* Node-fetch (or Axios?)
+
 
 
 Note that we don't need babel anywhere in this configuration, because we are using Vite instead of Webpack on the frontend, and because we are targetting newer web browsers and recent versions of node on the backend.

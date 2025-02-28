@@ -5,6 +5,7 @@ dist-ssr
 # local environment config
 *.local
 .envrc
+.env
 .vscode/*
 !.vscode/extensions.json
 

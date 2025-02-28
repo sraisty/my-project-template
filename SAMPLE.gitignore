@@ -5,6 +5,7 @@ dist-ssr
 # local environment config
 *.local
 .envrc
+.env
 .vscode/*
 !.vscode/extensions.json
 
@@ -17,6 +18,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# test coverage
+coverage/
 
 # Editor directories and files
 .idea

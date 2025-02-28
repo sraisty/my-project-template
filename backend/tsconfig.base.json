@@ -3,19 +3,18 @@
     "target": "es2022",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    // "rootDir": "./src",
+
     "sourceMap": true, // Enable source maps for better debugging
     "noImplicitAny": true, // Avoid untyped variables
+    "forceConsistentCasingInFileNames": true,
     "types": ["node"], // Ensure Node.js types are included
     "isolatedModules": true, // Ensure compatibility with modern ESM loaders
     "allowSyntheticDefaultImports": true // Allow default imports from CJS modules
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules, dist"]
+  }
 }

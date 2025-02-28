@@ -1,9 +1,9 @@
 import request from 'supertest'
 import express from 'express'
 import dotenv from 'dotenv'
-import { Server } from 'http'
+import type { Server } from 'http'
 
-// filepath: /Users/sueraisty/Projects/my-project2/backend/src/index.test.ts
+// filepath: /Users/sueraisty/Projects/my-project/backend/generic-backend-server/src/index.test.ts
 
 // Load environment variables from .env file
 dotenv.config()

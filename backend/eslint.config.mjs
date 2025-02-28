@@ -20,7 +20,7 @@ async function createConfig() {
       languageOptions: {
         parser: typescriptParser,
         parserOptions: {
-          project: './tsconfig.json', // Adjust the path if necessary
+          // project: './tsconfig.json', // Adjust the path if necessary
           sourceType: 'module',
         },
         globals: {

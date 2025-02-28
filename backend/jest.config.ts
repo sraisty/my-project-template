@@ -8,7 +8,10 @@ const config: Config = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
+  roots: ['<rootDir>/src'],
   testMatch: ['**/*.test.ts'],
+  moduleFileExtensions: ['ts', 'js'],
+  transform: { '^.+\\.tsx?$': ['ts-jest'] },
 }
 
 export default config
