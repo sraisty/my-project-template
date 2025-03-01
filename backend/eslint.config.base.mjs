@@ -5,14 +5,9 @@ import prettier from 'prettier'
 import typescriptParser from '@typescript-eslint/parser'
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import globals from 'globals'
+import prettierConfig from './prettier.config.mjs'
 
-async function createConfig() {
-  const prettierConfig =
-    (await prettier.resolveConfig('prettier.config.mjs')) ||
-    (await prettier.resolveConfig('./prettier.config.mjs')) ||
-    (await prettier.resolveConfig('./package.json')) ||
-    {}
-
+function createConfig() {
   return [
     { ignores: ['dist', 'node_modules'] },
     {
@@ -20,8 +15,10 @@ async function createConfig() {
       languageOptions: {
         parser: typescriptParser,
         parserOptions: {
+          projectService: true,
+          tsconfigRootDir: import.meta.dirname,
           // project: './tsconfig.json', // Adjust the path if necessary
-          sourceType: 'module',
+          // sourceType: 'module',
         },
         globals: {
           ...globals.node, // Add Node.js globals
@@ -39,6 +36,10 @@ async function createConfig() {
         'prettier/prettier': ['error', prettierConfig, { usePrettierrc: false }],
         '@typescript-eslint/consistent-type-imports': 'warn',
         '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+        '@typescript-eslint/no-unused-expressions': 'warn',
+        '@typescript-eslint/switch-exhaustiveness-check': 'warn',
+        'object-shorthand': 'error',
+        '@typescript-eslint/method-signature-style': 'error',
       },
       settings: {
         'import/parsers': {

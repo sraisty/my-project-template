@@ -4,6 +4,7 @@
   "private": true,
   "description": "Monorepo for my project, including frontend and backend microservices",
   "main": "index.js",
+  "type": "module",
   "workspaces": [
     "frontend",
     "backend/*"
@@ -36,12 +37,5 @@
   },
   "engines": {
     "node": ">=23.0.0"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "semi": false,
-    "trailingComma": "es5",
-    "printWidth": 100,
-    "tabWidth": 2
   }
 }
