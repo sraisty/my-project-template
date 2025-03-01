@@ -1,99 +1,84 @@
-//eslint.config.mjs
-import js from '@eslint/js'
-import eslintPluginPrettier from 'eslint-plugin-prettier'
-import prettier from 'prettier'
+// frontend/eslint.config.mjs
+// import js from '@eslint/js'
+// import typescriptParser from '@typescript-eslint/parser'
+// import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import globals from 'globals'
+import baseConfig from '../eslint.config.base.mjs'
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import reactRefreshPlugin from 'eslint-plugin-react-refresh'
-import typescriptParser from '@typescript-eslint/parser'
-import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 
-async function createConfig() {
-  const prettierConfig =
-    (await prettier.resolveConfig('prettier.config.mjs')) ||
-    (await prettier.resolveConfig('./prettier.config.mjs')) ||
-    (await prettier.resolveConfig('./package.json')) ||
-    {}
-
+function createConfig() {
   return [
-    { ignores: ['dist', 'node_modules'] },
     {
-      files: ['**/*.{js,jsx,ts,tsx}'],
+      // ...baseConfig,
       languageOptions: {
-        ecmaVersion: 2020,
-        globals: {
-          ...globals.browser,
-        },
-        parser: typescriptParser,
+        ...baseConfig.languageOptions,
         parserOptions: {
+          // *****************  BELOW THIS IS DIFFERENT
+          sourceType: 'module',
           ecmaFeatures: {
             jsx: true,
           },
           project: './tsconfig.eslint.json',
-          sourceType: 'module',
+          // ***************** ABOVE THIS IS DIFFERENT
+        },
+        globals: {
+          ...globals.browser,
+          ...globals.es2022, // Add ES2022 globals // NEEDED?
         },
       },
       plugins: {
-        '@typescript-eslint': typescriptPlugin,
+        ...baseConfig.plugins,
         react: reactPlugin,
         'react-hooks': reactHooksPlugin,
         'react-refresh': reactRefreshPlugin,
-        prettier: eslintPluginPrettier,
       },
       rules: {
-        ...js.configs.recommended.rules,
-        ...typescriptPlugin.configs.recommended.rules, // Expand @typescript-eslint/recommended
+        ...baseConfig.rules,
         ...reactPlugin.configs.recommended.rules,
         ...reactHooksPlugin.configs.recommended.rules, // Expand react-hooks/recommended
         ...reactRefreshPlugin.configs.recommended.rules,
         'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off', // If using TypeScript, you don't need prop-types
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-        '@typescript-eslint/consistent-type-imports': 'warn',
-        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
         'react-refresh/only-export-components': 'warn',
       },
       settings: {
+        ...baseConfig.settings,
         react: {
           version: 'detect', // Automatically detect React version
         },
       },
     },
 
-    // Test file overrides (Vitest specific):
-    {
-      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
-      languageOptions: {
-        globals: {
-          vi: 'readonly',
-          describe: 'readonly',
-          it: 'readonly',
-          expect: 'readonly',
-        },
-      },
-    },
+    // // Test file overrides (Vitest specific):
+    // {
+    //   files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
+    //   languageOptions: {
+    //     globals: {
+    //       vi: 'readonly',
+    //       describe: 'readonly',
+    //       it: 'readonly',
+    //       expect: 'readonly',
+    //     },
+    //   },
+    // },
 
-    // Vite config file:
-    {
-      files: ['vite.config.ts'],
-      languageOptions: {
-        ecmaVersion: 2022,
-        globals: globals.node,
-        parser: typescriptParser,
-        parserOptions: {
-          project: './tsconfig.node.json',
-          sourceType: 'module',
-        },
-      },
-      plugins: {
-        '@typescript-eslint': typescriptPlugin,
-      },
-      rules: {
-        ...js.configs.recommended.rules,
-        ...typescriptPlugin.configs.recommended.rules,
-      },
-    },
+    // // Vite config file:
+    // {
+    //   files: ['vite.config.ts'],
+    //   languageOptions: {
+    //     globals: globals.node,
+    //     // parser: typescriptParser,
+    //     parserOptions: {
+    //       project: './tsconfig.node.json',
+    //       sourceType: 'module',
+    //     },
+    //   },
+    //   plugins: { ...baseConfig.plugins },
+    //   rules: { ...baseConfig.rules },
+    // },
   ]
 }
 

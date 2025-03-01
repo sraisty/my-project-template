@@ -1,7 +1,6 @@
 // eslint.config.mjs
 import js from '@eslint/js'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
-import prettier from 'prettier'
 import typescriptParser from '@typescript-eslint/parser'
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import globals from 'globals'
@@ -13,6 +12,7 @@ function createConfig() {
     {
       files: ['**/*.{js,jsx,ts,tsx}'],
       languageOptions: {
+        ecmaVersion: 2022,
         parser: typescriptParser,
         parserOptions: {
           projectService: true,
@@ -22,7 +22,7 @@ function createConfig() {
         },
         globals: {
           ...globals.node, // Add Node.js globals
-          ...globals.es2022, // Add ES2022 globals
+          ...globals.es2022, // Add ES2022 globals // NEEDED?
           ...globals.jest,
         },
       },
@@ -41,20 +41,7 @@ function createConfig() {
         'object-shorthand': 'error',
         '@typescript-eslint/method-signature-style': 'error',
       },
-      settings: {
-        'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.tsx'],
-        },
-        'import/resolver': {
-          typescript: {
-            alwaysTryTypes: true,
-            project: './tsconfig.json', // Adjust the path if necessary
-          },
-        },
-        react: {
-          version: 'detect',
-        },
-      },
+      settings: {},
     },
   ]
 }
