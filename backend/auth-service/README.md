@@ -16,7 +16,6 @@ This service would be responsible for managing user accounts, authentication, an
 * postgres (for the user data)
 * knex (for query building)
 * JWT (for token-based authentication).
-* Docker for containerization
 
 
 ### Example Endpoints

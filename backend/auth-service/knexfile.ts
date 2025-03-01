@@ -1,6 +1,8 @@
 import type { Knex } from 'knex'
 import dotenv from 'dotenv'
 
+dotenv.config() // Load environment variables
+
 const config: { [key: string]: Knex.Config } = {
   development: {
     client: 'pg',
@@ -27,3 +29,5 @@ const config: { [key: string]: Knex.Config } = {
     },
   },
 }
+
+export default config

@@ -8,7 +8,15 @@
     "migrate": "knex migrate:latest --knexfile knexfile.ts",
     "migrate:rollback": "knex migrate:rollback --knexfile knexfile.ts",
     "seed": "knex seed:run --knexfile knexfile.ts",
-    "test": "jest"
+    "build": "tsc",
+    "dev": "node --experimental-specifier-resolution=node --watch ./src/index.ts",
+    "start": "node --experimental-specifier-resolution=node dist/index.js",
+    "lint": "eslint src/**/*.ts",
+    "format": "eslint --fix src/**/*.ts",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watchAll --passWithNoTests",
+    "typecheck": "tsc --noEmit",
+    "tsc": "tsc"
   },
   "author": "Sue Raisty",
   "license": "ISC",
