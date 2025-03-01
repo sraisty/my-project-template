@@ -11,8 +11,9 @@
     "backend/auth-service"
   ],
   "scripts": {
+    "dev": "./scripts/npm-run-script.sh dev",
+    "start": "./scripts/npm-run-script.sh start",
     "build": "npm run build --workspaces",
-    "dev": "npm run dev --workspaces",
     "lint": "npm run lint --workspaces",
     "format": "npm run format --workspaces",
     "test": "npm run test --workspaces"
@@ -23,6 +24,7 @@
     "@types/node": "^22.13.5",
     "@typescript-eslint/eslint-plugin": "8.25.0",
     "@typescript-eslint/parser": "8.25.0",
+    "concurrently": "^9.1.2",
     "eslint": "^9.21.0",
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^15.15.0",
