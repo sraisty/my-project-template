@@ -2,6 +2,7 @@
 
 This template provides a minimal setup for a full-stack project, with a separate frontend and backend.
 
+
 Frontend (web):
 * Typescript
 * React
@@ -18,12 +19,22 @@ Backend (server):
 * Express
 * Eslint + Prettier
 * Jest + Supertest - for testing
-* Postgres + Knex
-* Node-fetch (or Axios?)
+* Postgres - relational database
+* Knex - query builder
+* TBD: Node-fetch (or Axios?)
+
+MonoRepo:
+* NPM Workspaces
+* package.json supplemented by BASH scripts
+* 'concurrently' npm package
+
+Deployment: (coming soon)
+* CI:  tbd
+* Coming Soon: Docker or Docker Compose for containerization??
+* Maybe??: Kubernetes
 
 
-
-Note that we don't need babel anywhere in this configuration, because we are using Vite instead of Webpack on the frontend, and because we are targetting newer web browsers and recent versions of node on the backend.
+Note that we don't need babel or Webpack anywhere in this configuration, because we are using Vite instead of Webpack on the frontend, and because we are targetting newer web browsers and recent versions of node on the backend.
 
 
 

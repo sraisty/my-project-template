@@ -1,20 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "module": "nodenext",
+    "target": "es2024",
+    "module": "nodenext", // for backend projects
     "moduleResolution": "nodenext",
-    "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "outDir": "./dist",
+    // "outDir": "./dist",
     // "rootDir": "./src",
-
     "sourceMap": true, // Enable source maps for better debugging
-    "noImplicitAny": true, // Avoid untyped variables
-    "forceConsistentCasingInFileNames": true,
     "types": ["node"], // Ensure Node.js types are included
     "isolatedModules": true, // Ensure compatibility with modern ESM loaders
-    "allowSyntheticDefaultImports": true // Allow default imports from CJS modules
+    "allowSyntheticDefaultImports": true, // Allow default imports from CJS modules
+
+    // Linting
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "useDefineForClassFields": true // Needed for classes in ES2022 & later
   }
 }
