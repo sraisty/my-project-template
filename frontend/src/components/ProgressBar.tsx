@@ -32,7 +32,7 @@ export const ProgressBar = ({
     height: 'calc(100% - 2px)',
   }
   return (
-    <div>
+    <div role="progressbar">
       <div style={pbBackgroundStyle}>
         <div style={pbBarStyle}>
           <span style={{ marginLeft: 24, padding: 10 }}>{percent}</span>
