@@ -1,28 +1,26 @@
 {
-  "name": "boilerplate-backend",
+  "name": "my-project-generic-backend-service",
+  "description": "a template sample backend project, all configured",
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "node --experimental-specifier-resolution=node --watch src/index.ts",
-    "lint": "eslint src/**/*.ts",
+    "dev": "node --experimental-specifier-resolution=node --watch ./src/index.ts",
+    "start": "node --experimental-specifier-resolution=node dist/index.js",
+    "lint": "eslint --ext .ts",
     "format": "eslint --fix src/**/*.ts",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watchAll --passWithNoTests",
-    "start": "node --experimental-specifier-resolution=node dist/index.js",
     "typecheck": "tsc --noEmit",
     "tsc": "tsc"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
     "node-fetch": "^3.3.2",
     "pg": "^8.13.3",
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@types/pg": "^8.11.11",
-    "@types/supertest": "^6.0.2",
-    "supertest": "^7.0.0"
+    "@types/pg": "^8.11.11"
   },
   "engines": {
     "node": ">=23.0.0"
