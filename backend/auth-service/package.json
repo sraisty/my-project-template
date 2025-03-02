@@ -2,6 +2,8 @@
   "name": "auth-service",
   "version": "1.0.0",
   "description": "This service would be responsible for managing user accounts, authentication, and authorization.",
+  "author": "Sue Raisty",
+  "license": "ISC",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -11,24 +13,27 @@
     "build": "tsc",
     "dev": "node --experimental-specifier-resolution=node --watch ./src/index.ts",
     "start": "node --experimental-specifier-resolution=node dist/index.js",
-    "lint": "eslint src/**/*.ts",
+    "NOlint": "eslint src/**/*.ts",
+    "NOlint2": "eslint --ext .ts",
+    "lint": "eslint --ext .ts",
     "format": "eslint --fix src/**/*.ts",
-    "test": "jest --passWithNoTests",
+    "test": "jest --passWithNoTests --detectOpenHandles",
     "test:watch": "jest --watchAll --passWithNoTests",
     "typecheck": "tsc --noEmit",
     "tsc": "tsc"
   },
-  "author": "Sue Raisty",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.3",
     "knex": "^3.1.0",
     "pg": "^8.13.3"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.13.5",
-    "typescript": "^5.7.3"
+    "@types/bcryptjs": "^2.4.6"
+  },
+  "engines": {
+    "node": ">=23.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   }
 }

@@ -1,10 +1,7 @@
 import baseConfig from '../../eslint.config.base.mjs'
 
-export default [
-  ...baseConfig,
-  // {
-  //   rules: {
-  //     // ... package-specific rules
-  //   },
-  // },
-]
+const migrationIgnores = {
+  ignores: ['**/migrations/*'],
+}
+
+export default [...baseConfig, migrationIgnores]

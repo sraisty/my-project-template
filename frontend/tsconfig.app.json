@@ -1,21 +1,49 @@
 {
   "compilerOptions": {
-    "target": "ES2024",
-    "module": "ESNext", // for frontend projects that use Vite
+    // target"es2022" support of ES features like async/await and top-level await. Node.js 22 fully supports ES2022,
+    "target": "ES2022",
+
+    // moduleResolution  of'bundler' assumes Vite, Webpack, or other bundler will handle resolution
+    // of imports.  lets you "import" Emodules without specifying the '.js' file extension.
     "moduleResolution": "bundler",
+
+    // module=ESNext for frontend projects that use Vite
+    "module": "ESNext",
+
+    // esModuleInterop=true => can use 'import' instead of 'require' to pull in Common JS modules.
     "esModuleInterop": true,
+
+    // Allows 'import config from "./config.json"' instead of 'require("./config.json")'
     "resolveJsonModule": true,
-    "skipLibCheck": true,
+
+    // set isolatedModules to 'true' if using a bundler (vite, Webpack, swc), false if just using 'tsc' to build backend
     "isolatedModules": true,
-    "moduleDetection": "force",
-    "allowImportingTsExtensions": true,
+
+    // allowSyntheticDefaultImports=true => Allow default imports from CJS modules, such as
+    // `import express from "express"`, even if Express doesn't have a default export.
     "allowSyntheticDefaultImports": true,
 
+    // moduleDetection=force => Forces TypeScript to use module setting spec'd in tsconfig.json
+    "moduleDetection": "force",
+
+    // Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler'
+    // and either '--noEmit' or '--emitDeclarationOnly' to be set.
+    "allowImportingTsExtensions": true,
+
+    // Don't emit JS files, since Vite handles that
+    "noEmit": true,
+
+    // Skips checking .d.ts files for node_modules, to speed up compilation
+    "skipLibCheck": true,
+
+    // tsBuildInfoFile is a cache file that stores information for incremental builds
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // Enable source maps for better debugging
+    "sourceMap": true,
+
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-
-    "noEmit": true,
     "jsx": "react-jsxdev", // or "react-jsx" (prod), or 'react-jsxdev' (dev)
 
     /* Linting */

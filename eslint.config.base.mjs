@@ -22,7 +22,7 @@ function createConfig() {
         },
         globals: {
           ...globals.node, // Add Node.js globals
-          ...globals.es2022, // Add ES2022 globals // NEEDED?
+          ...globals.es2021, // Add ES2022 globals // NEEDED?
           ...globals.jest,
         },
       },
@@ -40,6 +40,14 @@ function createConfig() {
         '@typescript-eslint/switch-exhaustiveness-check': 'warn',
         'object-shorthand': 'error',
         '@typescript-eslint/method-signature-style': 'error',
+        '@typescript-eslint/no-misused-promises': [
+          'error',
+          {
+            checksVoidReturn: {
+              arguments: false,
+            },
+          },
+        ],
       },
       settings: {},
     },

@@ -1,17 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es2024",
-    "module": "nodenext", // for backend projects
-    "moduleResolution": "nodenext",
+    // target"es2022" support of ES features like async/await and top-level await. Node.js 22 fully supports ES2022,
+    "target": "es2022",
+
+    // moduleResolution 'node' lets you "import" modules without specifying the file extension.
+    // 'node16'& 'nodenext' also let you  "import" but you have to specify the JAVASCRIPT file extension (index.js)
+    "moduleResolution": "node",
+
+    // if moduleResolution is 'node', module must be 'CommonJS'
+    "module": "CommonJS",
+
+    // esModuleInterop=true => can use 'import' instead of 'require' to pull in Common JS modules.
     "esModuleInterop": true,
+
+    // Allows 'import config from "./config.json"' instead of 'require("./config.json")'
     "resolveJsonModule": true,
+
+    // set isolatedModules to 'true' if using a bundler (vite, Webpack, swc), false if just using 'tsc' to build backend
+    "isolatedModules": false,
+
+    // allowSyntheticDefaultImports=true => Allow default imports from CJS modules, such as
+    //  `import express from "express"`, even if Express doesn't have a default export.
+    "allowSyntheticDefaultImports": true,
+
+    // Skips checking .d.ts files for node_modules, to speed up compilation
     "skipLibCheck": true,
-    // "outDir": "./dist",
-    // "rootDir": "./src",
+
     "sourceMap": true, // Enable source maps for better debugging
-    "types": ["node"], // Ensure Node.js types are included
-    "isolatedModules": true, // Ensure compatibility with modern ESM loaders
-    "allowSyntheticDefaultImports": true, // Allow default imports from CJS modules
+    "types": ["jest", "node"],
 
     // Linting
     "strict": true,
