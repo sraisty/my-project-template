@@ -1,8 +1,8 @@
 // auth-service/src/handlers.ts
 import type express from 'express'
-import { generateToken, verifyToken } from './routes/tokens.js'
+import { generateToken, verifyToken } from './tokens'
 
-type RequestPayload = { username: string; password?: string }
+export type AuthRequestPayload = { username: string; password?: string }
 type Handler = (req: express.Request, res: express.Response) => void
 
 // TODO Fix this hack and make it secure
@@ -11,7 +11,7 @@ type Handler = (req: express.Request, res: express.Response) => void
 const users = new Map<string, string>()
 
 export const registerHandler: Handler = (req, res) => {
-  const { username, password } = req.body as RequestPayload
+  const { username, password } = req.body as AuthRequestPayload
   if (!username || !password) {
     res.status(400).json({ message: 'Username and password are required' })
     return
@@ -26,7 +26,7 @@ export const registerHandler: Handler = (req, res) => {
 }
 
 export const loginHandler: Handler = (req, res) => {
-  const { username, password } = req.body as RequestPayload
+  const { username, password } = req.body as AuthRequestPayload
   if (!username || !password) {
     res.status(400).json({ message: 'Username and password are required' })
     return
