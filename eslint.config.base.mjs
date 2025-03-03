@@ -40,6 +40,7 @@ function createConfig() {
         '@typescript-eslint/switch-exhaustiveness-check': 'warn',
         'object-shorthand': 'error',
         '@typescript-eslint/method-signature-style': 'error',
+        '@typescript-eslint/no-floating-promises': 'error',
         '@typescript-eslint/no-misused-promises': [
           'error',
           {

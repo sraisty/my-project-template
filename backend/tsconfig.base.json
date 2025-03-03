@@ -36,6 +36,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "useDefineForClassFields": true // Needed for classes in ES2022 & later
+    "useDefineForClassFields": true, // Needed for classes in ES2022 & later
+    "noUncheckedIndexedAccess": false
   }
 }
