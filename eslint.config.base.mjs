@@ -1,5 +1,5 @@
-// eslint.config.mjs
 import js from '@eslint/js'
+import eslintPluginJest from 'eslint-plugin-jest'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
 import typescriptParser from '@typescript-eslint/parser'
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
@@ -24,11 +24,13 @@ function createConfig() {
           ...globals.node, // Add Node.js globals
           ...globals.es2021, // Add ES2022 globals // NEEDED?
           ...globals.jest,
+          ...eslintPluginJest.environments.globals.globals,
         },
       },
       plugins: {
         '@typescript-eslint': typescriptPlugin,
         prettier: eslintPluginPrettier,
+        jest: eslintPluginJest,
       },
       rules: {
         ...js.configs.recommended.rules,
@@ -56,6 +58,11 @@ function createConfig() {
             },
           },
         ],
+        'jest/no-disabled-tests': 'warn',
+        'jest/no-focused-tests': 'error',
+        'jest/no-identical-title': 'error',
+        'jest/prefer-to-have-length': 'warn',
+        'jest/valid-expect': 'error',
       },
       settings: {},
     },
