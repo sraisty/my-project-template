@@ -33,7 +33,24 @@
     "node": ">=23.0.0"
   },
   "jest": {
+    "testEnvironment": "node",
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.test.ts",
+      "**/__tests__ /**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[tj]s?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
   }
 }

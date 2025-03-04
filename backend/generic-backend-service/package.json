@@ -10,7 +10,7 @@
     "dev": "node --experimental-specifier-resolution=node --watch ./src/index.ts",
     "start": "node --experimental-specifier-resolution=node dist/index.js",
     "lint": "eslint --ext .ts",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "test:watch": "jest --watchAll --passWithNoTests",
     "typecheck": "tsc --noEmit",
     "tsc": "tsc"
@@ -28,7 +28,25 @@
     "node": ">=23.0.0"
   },
   "jest": {
+    "rootDir": ".",
+    "testEnvironment": "node",
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.test.ts",
+      "**/__tests__ /**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[tj]s?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
   }
 }

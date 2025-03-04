@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+    {
+      "name": "frontend",
+      "path": "frontend",
+    },
+    {
+      "name": "generic-backend-service",
+      "path": "backend/generic-backend-service",
+    },
+    {
+      "name": "auth-service",
+      "path": "backend/auth-service",
+    },
+  ],
+  "settings": {
+    "jest.disabledWorkspaceFolders": ["frontend"],
+  },
+}

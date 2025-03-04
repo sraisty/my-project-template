@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "npm run test --prefix generic-backend-service && npm run test --prefix auth-service",
+    "test": "jest --detectOpenHandles",
     "test:watch": "npm run test:watch --prefix generic-backend-service && npm run test:watch --prefix auth-service",
     "lint": "eslint --ext .ts "
   },
