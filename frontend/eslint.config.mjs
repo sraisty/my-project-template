@@ -11,7 +11,7 @@ import reactRefreshPlugin from 'eslint-plugin-react-refresh'
 function createConfig() {
   return [
     {
-      // ...baseConfig,
+      ...baseConfig,
       languageOptions: {
         ...baseConfig.languageOptions,
         parserOptions: {
@@ -53,32 +53,32 @@ function createConfig() {
     },
 
     // // Test file overrides (Vitest specific):
-    // {
-    //   files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
-    //   languageOptions: {
-    //     globals: {
-    //       vi: 'readonly',
-    //       describe: 'readonly',
-    //       it: 'readonly',
-    //       expect: 'readonly',
-    //     },
-    //   },
-    // },
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
+      languageOptions: {
+        globals: {
+          vi: 'readonly',
+          describe: 'readonly',
+          it: 'readonly',
+          expect: 'readonly',
+        },
+      },
+    },
 
     // // Vite config file:
-    // {
-    //   files: ['vite.config.ts'],
-    //   languageOptions: {
-    //     globals: globals.node,
-    //     // parser: typescriptParser,
-    //     parserOptions: {
-    //       project: './tsconfig.node.json',
-    //       sourceType: 'module',
-    //     },
-    //   },
-    //   plugins: { ...baseConfig.plugins },
-    //   rules: { ...baseConfig.rules },
-    // },
+    {
+      files: ['vite.config.ts'],
+      languageOptions: {
+        globals: globals.node,
+        // parser: typescriptParser,
+        parserOptions: {
+          project: './tsconfig.node.json',
+          sourceType: 'module',
+        },
+      },
+      plugins: { ...baseConfig.plugins },
+      rules: { ...baseConfig.rules },
+    },
   ]
 }
 
