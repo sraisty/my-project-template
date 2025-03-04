@@ -1,0 +1,5 @@
+{
+  "jest.runMode": "watch",
+  "jest.enable": true,
+  "jest.jestCommandLine": "npm run test --"
+}

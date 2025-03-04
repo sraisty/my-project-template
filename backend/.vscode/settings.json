@@ -1,0 +1,4 @@
+{
+  "jest.runMode": "watch",
+  "jest.jestCommandLine": "npx jest"
+}
