@@ -28,7 +28,7 @@ describe('verifyHandler', () => {
     const response = await request(app).get('/verify') // Assign the response to a variable
     expect(response.status).toBe(401)
     expect((response.body as { message: string }).message).toBe(
-      'No token  provided'
+      'No token provided'
     )
     return
   })
