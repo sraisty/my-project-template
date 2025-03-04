@@ -1,5 +1,5 @@
 {
-  "name": "my-project-backend",
+  "name": "my-project-template-backend",
   "description": "handles dependencies across all the backend packages",
   "private": true,
   "version": "1.0.0",
