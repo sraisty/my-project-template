@@ -2,13 +2,34 @@
 # This script runs npm scripts concurrently across all workspaces, 
 # from within the package.json file at the root of the monorepo.
 
-# Usage: ./run-script.sh <script-name>
-# Example (in root/package.json => scripts):
-#   "dev": "./run-script.sh dev"
-# Example: ./run-script.sh start
+# Usage: ./run-script.sh <script-name> [--excludeWs <workspace1,workspace2,...>]
+# Example: ./run-script.sh dev --excludeWs frontend,backend
 
 # Get the script command to run (default to "dev" if not provided)
-SCRIPT_NAME="${1:-dev}"
+SCRIPT_NAME=""
+EXCLUDE_WS=()
+
+# Parse command-line arguments
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --excludeWs)
+      IFS=',' read -r -a EXCLUDE_WS <<< "$2"
+      shift 2
+      ;;
+    *)
+      if [ -z "$SCRIPT_NAME" ]; then
+        SCRIPT_NAME="$1"
+      else
+        echo "⛔️ Error: Unknown argument '$1'"
+        exit 1
+      fi
+      shift
+      ;;
+  esac
+done
+
+# Default to "dev" if no script name is provided
+SCRIPT_NAME="${SCRIPT_NAME:-dev}"
 
 # Ensure script stops on errors
 set -e
