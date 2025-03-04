@@ -1,10 +1,3 @@
-import baseConfig from '../../eslint.config.base.mjs'
+import baseConfig from '../eslint.config.backend.mjs'
 
-export default [
-  ...baseConfig,
-  // {
-  //   rules: {
-  //     // ... package-specific rules
-  //   },
-  // },
-]
+export default [...baseConfig]

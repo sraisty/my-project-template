@@ -33,9 +33,16 @@ function createConfig() {
       rules: {
         ...js.configs.recommended.rules,
         ...typescriptPlugin.configs['recommended-type-checked'].rules,
-        'prettier/prettier': ['error', prettierConfig, { usePrettierrc: false }],
+        'prettier/prettier': [
+          'error',
+          prettierConfig,
+          { usePrettierrc: false },
+        ],
         '@typescript-eslint/consistent-type-imports': 'warn',
-        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+        '@typescript-eslint/no-unused-vars': [
+          'warn',
+          { argsIgnorePattern: '^_' },
+        ],
         '@typescript-eslint/no-unused-expressions': 'warn',
         '@typescript-eslint/switch-exhaustiveness-check': 'warn',
         'object-shorthand': 'error',

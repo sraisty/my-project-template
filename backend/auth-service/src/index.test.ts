@@ -27,7 +27,9 @@ describe('verifyHandler', () => {
   it('should return 401 if no token is provided', async () => {
     const response = await request(app).get('/verify') // Assign the response to a variable
     expect(response.status).toBe(401)
-    expect((response.body as { message: string }).message).toBe('No token provided')
+    expect((response.body as { message: string }).message).toBe(
+      'No token  provided'
+    )
     return
   })
 
@@ -36,14 +38,18 @@ describe('verifyHandler', () => {
       .get('/verify')
       .then((response) => {
         expect(response.status).toBe(401)
-        expect((response.body as { message: string }).message).toBe('No token provided')
+        expect((response.body as { message: string }).message).toBe(
+          'No token provided'
+        )
         done()
       })
       .catch(done)
   })
 
   it('should return 403 if the token is invalid', async () => {
-    const response = await request(app).get('/verify').set('Authorization', 'Bearer invalid.token')
+    const response = await request(app)
+      .get('/verify')
+      .set('Authorization', 'Bearer invalid.token')
     expect(response.status).toBe(403)
     expect((response.body as { message: string }).message).toBe('Invalid token')
     return
@@ -51,7 +57,9 @@ describe('verifyHandler', () => {
 
   it.skip('should return 200 and the username if the token is valid', async () => {
     const validToken = 'valid.token' // Replace with a valid token for testing
-    const response = await request(app).get('/verify').set('Authorization', `Bearer ${validToken}`)
+    const response = await request(app)
+      .get('/verify')
+      .set('Authorization', `Bearer ${validToken}`)
     expect(response.status).toBe(200)
     expect((response.body as { username: string }).username).toBe('testuser') // Replace with the expected username
   })

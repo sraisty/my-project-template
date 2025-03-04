@@ -38,7 +38,9 @@ export const verifyToken = (token: string): string | null => {
 }
 
 // Type guard to ensure the object matches expected shape
-const isAuthRequestPayload = (payload: unknown): payload is AuthRequestPayload => {
+const isAuthRequestPayload = (
+  payload: unknown
+): payload is AuthRequestPayload => {
   return (
     typeof payload === 'object' &&
     payload !== null &&
