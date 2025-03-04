@@ -22,7 +22,7 @@ function createConfig() {
         },
         globals: {
           ...globals.node, // Add Node.js globals
-          ...globals.es2021, // Add ES2022 globals // NEEDED?
+          ...globals.es2022,
           ...globals.jest,
           ...eslintPluginJest.environments.globals.globals,
         },
