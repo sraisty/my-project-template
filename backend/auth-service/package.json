@@ -17,7 +17,7 @@
     "NOlint2": "eslint --ext .ts",
     "lint": "eslint --ext .ts",
     "format": "eslint --fix src/**/*.ts",
-    "test": "jest --passWithNoTests --detectOpenHandles",
+    "test": "jest --detectOpenHandles",
     "test:watch": "jest --watchAll --passWithNoTests",
     "typecheck": "tsc --noEmit",
     "tsc": "tsc"

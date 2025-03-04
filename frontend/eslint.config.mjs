@@ -27,7 +27,8 @@ const frontendConfig = [
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
       ...reactPlugin.configs.recommended.rules,
-      ...reactHooksPlugin.configs.recommended.rules, // Expand react-hooks/recommended
+      ...reactPlugin.configs['jsx-runtime'].rules,
+      ...reactHooksPlugin.configs.recommended.rules,
       ...reactRefreshPlugin.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off', // If using TypeScript, you don't need prop-types
