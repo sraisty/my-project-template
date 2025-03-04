@@ -16,7 +16,8 @@
     "build": "npm run build --workspaces",
     "lint": "npm run lint --workspaces",
     "format": "npm run format --workspaces",
-    "test": "npm run test --workspaces"
+    "test": "npm run test --workspaces",
+    "test:backend": "./scripts/npm-run-script.sh test --excludeWs frontend"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.7",
