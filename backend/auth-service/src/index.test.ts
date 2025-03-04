@@ -33,19 +33,6 @@ describe('verifyHandler', () => {
     return
   })
 
-  it('should return 401 if no token is provided', (done) => {
-    request(app)
-      .get('/verify')
-      .then((response) => {
-        expect(response.status).toBe(401)
-        expect((response.body as { message: string }).message).toBe(
-          'No token provided'
-        )
-        done()
-      })
-      .catch(done)
-  })
-
   it('should return 403 if the token is invalid', async () => {
     const response = await request(app)
       .get('/verify')

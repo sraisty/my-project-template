@@ -1,4 +1,6 @@
 // auth-service/src/index.ts
+// Entry point for the auth service. This file sets up an Express server and defines routes for the auth service endpoints.
+
 import express from 'express'
 import dotenv from 'dotenv'
 import { loginHandler, registerHandler, verifyHandler } from './handlers.js'
