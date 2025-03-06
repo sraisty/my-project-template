@@ -30,7 +30,7 @@
     "@types/bcryptjs": "^2.4.6"
   },
   "engines": {
-    "node": ">=23.0.0"
+    "node": ">=22.14.0"
   },
   "jest": {
     "testEnvironment": "node",
