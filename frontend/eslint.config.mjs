@@ -37,6 +37,8 @@ const frontendConfig = [
         { allowConstantExport: true },
       ],
       'react-refresh/only-export-components': 'warn',
+
+      '@typescript-eslint/no-unsafe-return': 'off',
     },
     settings: {
       react: {

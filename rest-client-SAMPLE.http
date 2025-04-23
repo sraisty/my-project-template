@@ -1,0 +1,81 @@
+### Dummyjson.com/docs
+
+@BASEURL=https://dummyjson.com
+
+### Get all blog posts
+GET {{BASEURL}}/posts
+
+### Get a particular blog posts 
+GET {{BASEURL}}/posts/2
+
+### Search all posts for the word "love"
+GET {{BASEURL}}/posts/search?q=love
+
+
+## Limit and skip posts
+# You can pass limit and skip params to limit and skip the results for 
+### pagination, and use limit=0 to get all items.
+@LIMIT=10
+@SKIP=20
+### You can pass select as query params with comma-separated values to select
+### specific data
+GET {{BASEURL}}/posts?limit={{LIMIT}}&skip={{SKIP}}&select=title,reactions,userId
+
+
+### Sort posts
+GET {{BASEURL}}/posts?sortBy=title&order=asc
+
+
+### Get all posts by user id
+@USERID=2
+GET {{BASEURL}}/posts/user/{{USERID}}
+
+### Get all comments of a post
+@POSTID=1
+GET {{BASEURL}}/posts/{{POSTID}}/comments
+
+### Add a new post
+POST {{BASEURL}}/posts/add 
+Content-Type: application/json
+
+{
+  "title": "I love pizza",
+  "userId": 5,
+  "body": "Pizza, you've been so good to me all my life.  I love you, pizza."
+}
+
+### Update a post
+@POSTID=4
+PUT {{BASEURL}}/posts/{{POSTID}}
+Content-Type: application/json
+Authorization: 
+
+{
+  "title": "My Updated Post",
+  "body": "This is the new content of my updated post.",
+  "userId": 1
+}
+
+### Delete a post
+DELETE {{BASEURL}}/posts/{{POSTID}}
+
+
+### Headers for Requests:
+# Authorization:  Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+# Proxy-Authorization
+# Accept:  application/json, text/html
+# User-Agent: 
+# Content-Type: application/json
+# Cookie: $Version=1; Skin=new;
+# Cache-Control: no-cache
+# Connection: keep-alive
+# Connection: Upgrade
+# Content-Encoding: gzip'
+
+### Headers for responses
+# Proxy-authenticate
+# WWW-Authenticate
+# Age
+# Cache-Control: max-age=3600, public
+# Connection: close
+# 
